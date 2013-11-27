@@ -1,0 +1,14 @@
+[user]
+	email = dima@ceata.org
+	name = Dumitru Ursu
+[alias]
+  aa = add .
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  st = status -sb
+  cm = commit
+  co = checkout
+  df = diff --color
+  dc = diff --color --cached
+  ph = push
+  pl = pull
+  sw = show --color

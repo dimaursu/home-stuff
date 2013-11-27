@@ -1,0 +1,87 @@
+################
+#   THEME      #
+################
+
+gtk-theme-name = "Adwaita"
+
+################
+#  FONTS       #
+################
+
+style "schrift"
+{
+font_name = "Ubuntu 10"
+}
+widget_class "*" style "schrift"
+gtk-font-name = "Ubuntu 10"
+
+
+#################
+#   TOOLBARS    #
+#################
+
+#gtk-toolbar-style   = GTK_TOOLBAR_ICONS              #Only icons
+#gtk-toolbar-style   = GTK_TOOLBAR_TEXT	             #Only text
+#gtk-toolbar-style   = GTK_TOOLBAR_BOTH	             #Both icons and text
+gtk-toolbar-style   = GTK_TOOLBAR_BOTH_HORIZ	     #Icons and text next to the icons
+
+gtk-icon-sizes = "panel-menu=24,24:panel=24,24:gtk-menu=24,24\
+:gtk-large-toolbar=24,24:gtk-small-toolbar=24,24:gtk-button=24,24"
+
+##################
+#     ICONS      #
+##################
+
+gtk-icon-theme-name = "elementary"
+
+
+################List of themes######################
+#   Adwaita
+#   AgingGorilla
+#   Atlanta
+#   Bright
+#   Clearlooks
+#   Crux
+#   Default
+#   Emacs
+#   Esco
+#   HighContrast
+#   HighContrastInverse
+#   Industrial
+#   LowContrast
+#   Metabox
+#   Mist
+#   Raleigh
+#   Redmond
+#   Simple
+#   ThinIce
+#   bubble
+#   elementary
+#   Zukitwo-Dark
+#icons
+#   Adwaita
+#   F-Dark
+#   F-Dark-Black
+#   Faenza
+#   Faenza-Dark
+#   Faenza-Darker
+#   Faenza-Darkest
+#   HighContrast
+#   HighContrastInverse
+#   LowContrast
+#   Oxygen_Black
+#   Oxygen_Blue
+#   Oxygen_White
+#   Oxygen_Yellow
+#   Oxygen_Zion
+#   default.kde4
+#   elementary
+#   elementary-mono-dark
+#   gnome
+#   hicolor
+#   locolor
+#   mono
+#   nuvola
+#   oxygen
+#   ubuntu-mono-dark
+#   ubuntu-mono-light

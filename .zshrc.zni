@@ -1,0 +1,8 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' matcher-list 'l:|=* r:|=*' 'r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:]}'
+zstyle :compinstall filename '/home/dimon/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall

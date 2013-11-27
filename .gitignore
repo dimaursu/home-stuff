@@ -1,0 +1,11 @@
+# First, ignore everything
+*
+!*.bashrc
+!*.bash_profile
+!*.vimrc
+!*.zshrc.zni
+!*.zshrc
+!*.gtkrc.mine
+!*.gtkrc-2.0
+!*.gitconfig
+!*.gitignore
