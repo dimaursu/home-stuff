@@ -67,9 +67,9 @@
      set nowrap " do not wrap line
      set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
      set smartcase " if there are caps, go case-sensitive
-     set shiftwidth=4 " auto-indent amount when using cindent,
+     set shiftwidth=2 " auto-indent amount when using cindent,
                        " >>, << and stuff like that
-     set softtabstop=4 " when hitting tab or backspace, how many spaces
+     set softtabstop=2 " when hitting tab or backspace, how many spaces
                         "should a tab be (see expandtab)
      set list listchars=trail:·,tab:·· "tailing space
      set smarttab " real tabs should be 2, and they will show with
@@ -114,8 +114,6 @@ endif
 "use Prolog syntax highlightning for .pro files
 au BufRead,BufNewFile *.pro set filetype=prolog
 
-" ruby should be indented by 2 spaces, not 4
-autocmd Filetype ruby,yml,feature setlocal ts=2 sts=2 sw=2 et
 autocmd FileType tex setlocal spell spelllang=en_us
 
 set cursorline
@@ -128,14 +126,14 @@ set colorcolumn=80
 " force 256 colors mode
 set t_Co=256                        " force vim to use 256 colors
 let g:solarized_termcolors=256      " use solarized 256 fallback
-let g:solarized_contrast = "high"
+" let g:solarized_contrast = "high"
 " use fancy intend guides
 let g:indentLine_char = "┆"
 "ʬ
 
 " make you complete me use tags files
-let g:ycm_collect_identifiers_from_tags_files = 1
-"let g:vim_tags_use_ycm = 1
+ let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:vim_tags_use_ycm = 1
 " use keyword of programming languages from syntax files
-"let g:ycm_seed_identifiers_with_syntax = 1
+ let g:ycm_seed_identifiers_with_syntax = 1
 set mouse=a
