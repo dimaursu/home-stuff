@@ -45,6 +45,7 @@ alias ls='ls --color=auto'
 # use tmux with 256 color support
 alias tmux="tmux -2"
 alias rctags="ctags -R . \`bundle list --paths\`"
+alias j=jump
 
 PATH=$PATH:$HOME/.meteor
 PATH=$PATH:$HOME/.qemu/bin
