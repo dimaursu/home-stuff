@@ -9,3 +9,4 @@
 !*.gtkrc-2.0
 !*.gitconfig
 !*.gitignore
+!*.conky*
