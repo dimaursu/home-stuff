@@ -1,8 +1,8 @@
-alignment tl
+alignment bl
 background yes
 border_width 2
 cpu_avg_samples 2
-default_color 333333
+default_color ffffff
 default_outline_color black
 default_shade_color black
 draw_borders no
@@ -10,7 +10,7 @@ draw_graph_borders no
 draw_outline no
 draw_shades no
 use_xft yes
-xftfont Dejavu Sans Mono:size=10
+xftfont Source Code Pro:size=10
 gap_x 36
 gap_y 36
 double_buffer yes
@@ -23,7 +23,7 @@ own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
 stippled_borders 8
-update_interval 30
+update_interval 3
 uppercase no
 use_spacer none
 show_graph_scale no
@@ -31,4 +31,4 @@ show_graph_range no
 #minimum_size 1000 5
 
 TEXT
-${exec task}
+${exec journalctl -n 8 -r }
