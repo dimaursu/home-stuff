@@ -9,8 +9,6 @@ call vundle#begin()
 
     " My Bundles here:
     Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-haml'
-    Plugin 'mustache/vim-mustache-handlebars'
     "Plugin 'tpope/vim-rake'
     "Plugin 'tpope/vim-bundler'
     "Plugin 'tpope/vim-dispatch'
@@ -18,22 +16,19 @@ call vundle#begin()
     Plugin 'Lokaltog/vim-easymotion'
     "Plugin 'tpope/vim-rails.git'
     Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-markdown'
     Plugin 'scrooloose/syntastic'
+    Plugin 'janko-m/vim-test'
 
     " enable it when doing php stuff
     Plugin 'joonty/vdebug.git'
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
-    Plugin 'joonty/vim-sauce.git'
     Plugin 'rking/ag.vim'
 
     Plugin 'mattn/emmet-vim'
 
     Plugin 'myusuf3/numbers.vim'
     Plugin 'mhinz/vim-signify'
-    Plugin 'Yggdroot/indentLine'
-    Plugin 'gorodinskiy/vim-coloresque'
 
     Plugin 'Valloric/YouCompleteMe'
     " Track the engine.
@@ -43,33 +38,40 @@ call vundle#begin()
     Plugin 'honza/vim-snippets'
     Plugin 'godlygeek/tabular'
 
+    " syntax highligthning plugins
+    Plugin 'tpope/vim-markdown'
+    Plugin 'tpope/vim-haml'
+    Plugin 'mustache/vim-mustache-handlebars'
     Plugin 'cbracken/vala.vim'
+    Plugin 'elixir-lang/vim-elixir'
     Plugin 'groenewege/vim-less'
     Plugin 'othree/xml.vim'
     Plugin 'stephpy/vim-yaml'
     Plugin 'evidens/vim-twig'
+    Plugin 'iakio/smarty3.vim'
+    Plugin 'kchmck/vim-coffee-script'
     " templating engine in java
     "Plugin 'lepture/vim-velocity'
+    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 
 
     " colorschemes
     Plugin 'altercation/vim-colors-solarized'
 
     call vundle#end()
-    filetype plugin indent on  "required
 
     let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 "le powerline
     set laststatus=2
-    let g:Powerline_symbols = 'fancy'
 " Easy motion
     let g:EasyMotion_leader_key = ','
 " CTRL + E to expand emmet expressions
     let g:user_emmet_expandabbr_key = '<c-o>'
  " General {
     " make syntax highlithning faster
-    "set lazyredraw
-    "set synmaxcol=90
+     "set lazyredraw
+     "set synmaxcol=90
      filetype plugin indent on " load filetype plugins/indent settings
      "set autochdir " always switch to the current file directory
      set backspace=indent,eol,start " make backspace a more flexible
@@ -126,14 +128,21 @@ set pastetoggle=<F2>
 set background=dark " we plan to use a dark background
 set encoding=utf-8
 set termencoding=utf-8
-"set cm=blowfish " use set key=ololo to ecrypt the file.
-syntax on
+"set cryptmethod=blowfish " use set key=ololo to ecrypt the file.
+syntax enable
 
 
 set nobackup
 set noswapfile
 nnoremap ; :
 nmap <silent> m :NERDTreeToggle<CR>
+
+" vim test shortcuts
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 "cursor to appear in its previous position after you open a file
 if has("autocmd")
@@ -150,9 +159,10 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=b
 endif
-autocmd Filetype ruby,yml,feature,js,html setlocal ts=2 sts=2 sw=2 et
-autocmd FileType tex setlocal spell spelllang=en_us
+autocmd Filetype ruby,yml,feature,js,coffee,html setlocal ts=2 sts=2 sw=2 et
+autocmd Filetype php setlocal ts=4 sts=0 sw=4  noexpandtab
 au BufNewFile,BufRead *.ejs set filetype=mustache
+au BufRead,BufNewFile *.tpl set filetype=smarty3
 
 " do not hide latex symbols
 let g:tex_conceal = ""
@@ -182,23 +192,30 @@ function! UnMinify()
     normal ggVG=
 endfunction
 
-function! HashRocket()
-    " converts the old ruby hash syntax to the new one
-    " a = { :b => 3 } to a = { b: 3}
-    %s/:\([^=,'"]*\) =>/\1:/g
+function! RubyNewHashRocket()
+    %s/:\([^ ]*\)\(\s*\)=>/\1:/g
 endfunction
+
+function! RubyOldHashRocket()
+    %s/:\([^ ]*\)\(\s*\)=>/\1:/g
+endfunction
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 " force 256 colors mode
 set t_Co=256                        " force vim to use 256 colors
 let g:solarized_termcolors=256      " use solarized 256 fallback
-" let g:solarized_contrast = "high"
-" use fancy intend guides
-let g:indentLine_char = "┆"
-"ʬ
+let g:solarized_contrast = "high"
 
 " make you complete me use tags files
  let g:ycm_collect_identifiers_from_tags_files = 0
 " use keyword of programming languages from syntax files
-" let g:ycm_seed_identifiers_with_syntax = 1
+ let g:ycm_seed_identifiers_with_syntax = 1
 set mouse=a
 set shell=$SHELL
