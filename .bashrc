@@ -17,5 +17,5 @@ source ~/.common.sh
 powerline-daemon --quiet
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-source /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+source /usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
 
