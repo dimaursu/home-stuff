@@ -1,8 +1,10 @@
 # First, ignore everything
 *
 !*.bashrc
+!*.common.sh
 !*.bash_profile
 !*.vimrc
+!*.tmux.conf
 !*.zshrc.zni
 !*.zshrc
 !*.gtkrc.mine
